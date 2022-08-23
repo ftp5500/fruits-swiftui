@@ -8,13 +8,42 @@
 import SwiftUI
 
 struct SourceLIinkComponent: View {
+    //MARK: - PROPERTIES
+    
+    //MARK: - FUNCTIONS
+    
+    //MARK: - BODY
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        GroupBox(){
+                HStack{
+                    Text("Content Source")
+                    Spacer()
+                    Link("Wikipedia" , destination: URL(string: "https://wikipedia.com")!)
+                    Image(systemName: "arrow.up.right.square")
+                    
+                }
+                .font(.footnote)
+              
+
+            }
+        
+        .background(.ultraThinMaterial)
+        
+      
     }
 }
 
+//MARK: - PREVIEW
 struct SourceLIinkComponent_Previews: PreviewProvider {
     static var previews: some View {
         SourceLIinkComponent()
+            .preferredColorScheme(.dark)
+            .previewLayout(.sizeThatFits)
+            .padding()
     }
 }
+
+
+
+
+

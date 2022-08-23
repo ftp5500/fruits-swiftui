@@ -8,13 +8,31 @@
 import SwiftUI
 
 struct OnboardingView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
+    
+    //MARK: - PROPERTIES
+    var fruits:[Fruit] = fruitsData
 
+    
+    //MARK: - FUNCTIONS
+    
+    
+    //MARK: - BODY
+    var body: some View {
+        TabView{
+            ForEach(fruits[0..<fruits.count]){ item in
+                FruitCardComponent(fruit: item)
+            }
+        
+        }//: End TabView
+        .tabViewStyle(PageTabViewStyle())
+        .padding(.vertical , 20)
+    }//: End body
+}//: End Onboardingview
+
+
+//MARK: - PREVIEW
 struct OnboardingView_Previews: PreviewProvider {
     static var previews: some View {
-        OnboardingView()
+        OnboardingView(fruits: fruitsData)
     }
 }

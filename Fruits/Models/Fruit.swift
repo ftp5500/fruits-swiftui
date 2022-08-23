@@ -9,10 +9,10 @@ import SwiftUI
 
 struct Fruit:Identifiable {
     var id = UUID()
-    var image:String
     var title:String
     var headline:String
-    var gradiantColors:[Color]
+    var image:String
+    var gradientColors:[Color]
     var description:String
-    var nutirtion:[String]
+    var nutrition:[String]
 }
