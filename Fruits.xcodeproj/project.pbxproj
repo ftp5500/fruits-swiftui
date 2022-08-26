@@ -16,6 +16,7 @@
 		417220DD28B268C900627A93 /* FruitHeaderComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417220DC28B268C900627A93 /* FruitHeaderComponent.swift */; };
 		417220DF28B27F4200627A93 /* SourceLIinkComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417220DE28B27F4200627A93 /* SourceLIinkComponent.swift */; };
 		417220E128B299EB00627A93 /* FruitNutrientsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417220E028B299EB00627A93 /* FruitNutrientsComponent.swift */; };
+		41948D2128B614670091E343 /* Collections in Frameworks */ = {isa = PBXBuildFile; productRef = 41948D2028B614670091E343 /* Collections */; };
 		41A94FC528AEC21300D3EE33 /* FruitsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A94FC428AEC21300D3EE33 /* FruitsApp.swift */; };
 		41A94FC728AEC21300D3EE33 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A94FC628AEC21300D3EE33 /* ContentView.swift */; };
 		41A94FC928AEC21D00D3EE33 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41A94FC828AEC21D00D3EE33 /* Assets.xcassets */; };
@@ -50,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41948D2128B614670091E343 /* Collections in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,6 +153,9 @@
 			dependencies = (
 			);
 			name = Fruits;
+			packageProductDependencies = (
+				41948D2028B614670091E343 /* Collections */,
+			);
 			productName = Fruits;
 			productReference = 41A94FC128AEC21300D3EE33 /* Fruits.app */;
 			productType = "com.apple.product-type.application";
@@ -179,6 +184,9 @@
 				Base,
 			);
 			mainGroup = 41A94FB828AEC21300D3EE33;
+			packageReferences = (
+				41948D1F28B614670091E343 /* XCRemoteSwiftPackageReference "swift-collections" */,
+			);
 			productRefGroup = 41A94FC228AEC21300D3EE33 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -347,6 +355,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Fruits/Preview Content\"";
+				DEVELOPMENT_TEAM = T76MCQRV73;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -355,6 +364,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -376,6 +386,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Fruits/Preview Content\"";
+				DEVELOPMENT_TEAM = T76MCQRV73;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -384,6 +395,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -419,6 +431,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		41948D1F28B614670091E343 /* XCRemoteSwiftPackageReference "swift-collections" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-collections.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		41948D2028B614670091E343 /* Collections */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 41948D1F28B614670091E343 /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = Collections;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 41A94FB928AEC21300D3EE33 /* Project object */;
 }

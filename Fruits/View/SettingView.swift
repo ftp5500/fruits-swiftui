@@ -7,14 +7,18 @@
 
 import SwiftUI
 
-
+import Collections
 
 
 struct SettingView: View {
     //MARK: - PROPERTIES
     @Environment(\.dismiss) var dismiss
+    @State private var isStarted = true
+    @AppStorage("isOnboarding") var isOnboarding:Bool = false
+
+
     
-    @State private var applicationData:[String:String] = [
+    @State private var applicationData:OrderedDictionary = [
         "Develper":"Ali Aljabri",
         "Designer":"Ali Aljabri",
         "Compatibilty":"IOS 15",
@@ -27,10 +31,14 @@ struct SettingView: View {
     
     
     //MARK: - FUNCTIONS
+
+   
+
     
     //MARK: - BODY
     
     var body: some View {
+        
         NavigationView{
             ScrollView(.vertical, showsIndicators: false){
                 VStack(spacing:20) {
@@ -66,20 +74,73 @@ struct SettingView: View {
                     
                     //MARK: - SECTION 2
                     
+                    GroupBox(label: SettingLabelComponent(labelText: "customization", labelImage: "paintbrush")) {
+                        Divider()
+                        VStack{
+                            Text("If you wish you can restart the application by toggle the swith in the box. That way it starts the onboarding  process and you will see the welcome scren again.")
+                            
+                            GroupBox(){
+                                Toggle(isOn: $isOnboarding) {
+                                    Text(isOnboarding
+                                         ? "restarted".uppercased()
+                                         :"Restart".uppercased()
+                                    )
+                                        
+                                        .fontWeight(.bold)
+                                        .foregroundColor(isOnboarding ? .green : .secondary)
+                                        .animation(.spring(), value: isOnboarding)
+                                   
+                                   }
+                            }
+                            
+                        }
+                    }
+                    
+                    
+                    
+                    //MARK: - SECTION 3
                     GroupBox(
                         label:
                             SettingLabelComponent(labelText: "application", labelImage: "apps.iphone")
                             .padding(.vertical , 10)
-                        //                            .overlay(
-                        //                                Divider()
-                        //                                    .padding(.top , 20)
-                        //                                ,alignment: .bottom
-                        //                            )
-                        
                     ){
                         VStack{
-                            ForEach(applicationData.keys.sorted() , id: \.self){  key in
-                                
+                            ForEach(applicationData.keys , id: \.self){  key in
+                                Divider()
+                                HStack{
+                                    Text(key)
+                                        .foregroundColor(.secondary)
+                                        .fontWeight(.bold)
+                                    
+                                    Spacer()
+                                    if key == "Twitter"{
+                                        Link(destination: URL(string: "https://twitter.com/aljabri55")!) {
+                                            HStack(spacing:8){
+                                                Text(applicationData[key]!)
+                                                    .fontWeight(.bold)
+                                                Image(systemName: "arrow.up.right.square")
+                                                    .font(.title3)
+                                                    .foregroundColor(.red)
+                                            }//: HStack
+                                        }//: Link
+                                    }else if key == "Website" {
+                                        Link(destination: URL(string: "https://alialjabri.netlify.app/")!) {
+                                            HStack(spacing:8){
+                                                Text(applicationData[key]!)
+                                                    .fontWeight(.bold)
+                                                Image(systemName: "arrow.up.right.square")
+                                                    .font(.title3)
+                                                    .foregroundColor(.red)
+                                            }//: HStack
+                                        }//: Link
+                                        
+                                    }else{
+                                        
+                                        Text(applicationData[key]!)
+                                            .fontWeight(.bold)
+                                    }
+                                }
+
                             }
                         }//: VStack
                         
@@ -89,7 +150,7 @@ struct SettingView: View {
                     .cornerRadius(8)
                     
                     
-                    //MARK: - SECTION 3
+                                    
                 }//: VSTACK
                 .navigationBarTitle(Text("Settings"), displayMode: .large)
                 .navigationBarItems(
